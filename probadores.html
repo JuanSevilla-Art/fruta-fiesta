@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fruta Fiesta · Hazte probador antes que nadie</title>
+<meta name="description" content="Juega gratis a Fruta Fiesta antes de su lanzamiento en Google Play. Apúntate como probador con tu correo de Google.">
+<meta name="theme-color" content="#ff5a5f">
+
+<!-- Vista previa al compartir en redes (sube portada-redes.png a la misma carpeta que esta página) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fruta Fiesta · Hazte probador antes que nadie">
+<meta property="og:description" content="Juega gratis antes del lanzamiento en Google Play. Plazas limitadas.">
+<meta property="og:image" content="https://juansevilla-art.github.io/fruta-fiesta/portada-redes.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#2a1640;
+    --ink-soft:#5b4a6e;
+    --cream:#fff8ef;
+    --berry:#ff3d6e;
+    --mango:#ffb21e;
+    --lime:#3ccf6e;
+    --grape:#7b4dff;
+    --card:#ffffff;
+    --radius:22px;
+    --shadow:0 18px 40px -18px rgba(42,22,64,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Nunito",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:"Fredoka","Nunito",sans-serif;line-height:1.1}
+  a{color:inherit}
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, #ffd36b 0%, transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, #ff8fb1 0%, transparent 55%),
+      linear-gradient(160deg,#ff5a5f 0%,#ff7a45 45%,#ffb21e 100%);
+    color:#fff;
+    padding:28px 0 120px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:90px;
+    background:var(--cream);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath d='M0 40C240 90 480 90 720 55S1200 0 1440 40V90H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath d='M0 40C240 90 480 90 720 55S1200 0 1440 40V90H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:700;font-size:1.35rem;text-decoration:none}
+  .brand svg{width:38px;height:38px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.18))}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);
+    padding:7px 14px;border-radius:999px;font-weight:700;font-size:.85rem;
+    backdrop-filter:blur(6px);
+  }
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:#b8ffcf;box-shadow:0 0 0 4px rgba(184,255,207,.35);animation:pulse 1.8s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(184,255,207,0)}}
+
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-top:56px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:700;letter-spacing:-.01em;text-shadow:0 4px 0 rgba(120,20,40,.18)}
+  .hero h1 em{font-style:normal;color:#fff3c4;display:inline-block;transform:rotate(-2deg)}
+  .hero p.lead{font-size:1.18rem;max-width:34ch;margin:18px 0 28px;color:#fff6ee;font-weight:600}
+
+  /* ---------- FORM ---------- */
+  .signup{
+    background:var(--card);color:var(--ink);
+    border-radius:var(--radius);padding:22px;box-shadow:0 30px 60px -25px rgba(90,10,40,.55);
+    max-width:480px;position:relative;
+  }
+  .signup label.field{display:block;font-weight:800;font-size:.85rem;margin-bottom:6px;color:var(--ink-soft)}
+  .signup input[type=email],.signup input[type=text]{
+    width:100%;font:inherit;font-size:1.02rem;color:var(--ink);
+    padding:14px 16px;border-radius:14px;border:2px solid #efe6f6;background:#fbf8fd;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .signup input:focus{outline:none;border-color:var(--grape);box-shadow:0 0 0 4px rgba(123,77,255,.15)}
+  .signup .hint{font-size:.82rem;color:var(--ink-soft);margin:6px 2px 14px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;color:var(--ink-soft);margin:4px 0 16px}
+  .consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--grape);flex:none}
+  .btn{
+    width:100%;border:0;cursor:pointer;font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;font-size:1.2rem;color:#fff;
+    padding:16px 20px;border-radius:16px;
+    background:linear-gradient(180deg,#8f66ff 0%,#6a3df2 100%);
+    box-shadow:0 6px 0 #4b25c4, 0 14px 24px -10px rgba(75,37,196,.7);
+    transition:transform .08s, box-shadow .08s, filter .15s;
+  }
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #4b25c4}
+  .btn[disabled]{filter:grayscale(.4) brightness(.95);cursor:progress}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .msg{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;font-weight:700;font-size:.92rem}
+  .msg.err{display:block;background:#ffe9ee;color:#b0173f}
+  .done{display:none;text-align:center;padding:10px 4px}
+  .done .big{font-size:3rem;line-height:1}
+  .done h3{font-size:1.6rem;margin:8px 0 6px}
+  .done p{color:var(--ink-soft)}
+  .signup.sent form{display:none}
+  .signup.sent .done{display:block}
+  .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:.86rem;font-weight:700;color:#fff3e6}
+  .trust span{display:inline-flex;align-items:center;gap:6px}
+  .trust svg{width:16px;height:16px}
+
+  /* ---------- PHONE MOCKUP ---------- */
+  .phone-stage{position:relative;display:grid;place-items:center}
+  .phone{
+    width:300px;aspect-ratio:9/17.5;border-radius:44px;padding:12px;
+    background:#1b0f2a;box-shadow:0 40px 80px -30px rgba(60,0,30,.7), inset 0 0 0 2px #3b2856;
+    transform:rotate(4deg);position:relative;z-index:2;
+  }
+  .screen{
+    height:100%;border-radius:34px;overflow:hidden;position:relative;
+    background:linear-gradient(180deg,#7b4dff 0%,#b14dff 40%,#ff7ab6 100%);
+    display:flex;flex-direction:column;align-items:center;padding:34px 14px 16px;gap:12px;
+  }
+  .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#1b0f2a}
+  .hud{display:flex;width:100%;justify-content:space-between;gap:6px}
+  .hud div{flex:1;background:rgba(255,255,255,.22);border-radius:12px;padding:6px 4px;text-align:center;color:#fff;font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;font-size:.78rem;line-height:1.1}
+  .hud b{display:block;font-size:1.05rem}
+  .board{
+    width:100%;flex:none;background:rgba(30,10,60,.35);border-radius:18px;padding:7px;
+    display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:auto;gap:4px;
+  }
+  .tile{background:rgba(255,255,255,.14);border-radius:10px;display:grid;place-items:center;aspect-ratio:1}
+  .tile svg{width:84%;height:84%;display:block;filter:drop-shadow(0 2px 1px rgba(0,0,0,.25))}
+  .tile.pop{animation:pop 2.4s ease-in-out infinite;background:rgba(255,255,255,.3)}
+  @keyframes pop{0%,70%,100%{transform:scale(1)}80%{transform:scale(1.18)}90%{transform:scale(.95)}}
+  .goal{width:100%;background:rgba(255,255,255,.22);border-radius:14px;padding:8px 10px;color:#fff;font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;font-size:.8rem;display:flex;align-items:center;gap:8px}
+  .goal svg{width:24px;height:24px;flex:none}
+  .bar{flex:1;height:10px;border-radius:6px;background:rgba(0,0,0,.2);overflow:hidden}
+  .bar i{display:block;height:100%;width:72%;border-radius:6px;background:linear-gradient(90deg,#fff07a,#ffb21e)}
+  .stars{display:flex;gap:6px;margin-top:auto;margin-bottom:6px}
+  .stars svg{width:30px;height:30px}
+  .stars svg:nth-child(2){transform:translateY(-6px) scale(1.15)}
+
+  .float{position:absolute;z-index:1;filter:drop-shadow(0 12px 14px rgba(90,10,40,.3))}
+  .float svg{width:100%;height:100%}
+  .f1{width:92px;height:92px;top:-10px;left:0;animation:bob 5s ease-in-out infinite}
+  .f2{width:78px;height:78px;bottom:40px;left:-20px;animation:bob 6s ease-in-out infinite .6s}
+  .f3{width:86px;height:86px;top:30px;right:-6px;animation:bob 5.5s ease-in-out infinite 1.2s;z-index:3}
+  .f4{width:70px;height:70px;bottom:0;right:10px;animation:bob 4.6s ease-in-out infinite .2s;z-index:3}
+  @keyframes bob{50%{transform:translateY(-14px) rotate(8deg)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:84px 0}
+  .eyebrow{display:inline-block;font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--berry);margin-bottom:10px}
+  h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;max-width:22ch}
+  .sub{color:var(--ink-soft);font-size:1.08rem;max-width:56ch;margin-top:12px}
+
+  .perks{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+  .perk{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .perk .ico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;margin-bottom:16px}
+  .perk .ico svg{width:34px;height:34px}
+  .perk h3{font-size:1.35rem;margin-bottom:6px;color:var(--ink)}
+  .perk p{color:var(--ink-soft)}
+  .perk::after{content:"";position:absolute;right:-40px;bottom:-40px;width:120px;height:120px;border-radius:50%;opacity:.12;background:currentColor}
+  .perk:nth-child(1){color:var(--berry)} .perk:nth-child(1) .ico{background:#ffe3ea}
+  .perk:nth-child(2){color:var(--grape)} .perk:nth-child(2) .ico{background:#ece5ff}
+  .perk:nth-child(3){color:var(--lime)}  .perk:nth-child(3) .ico{background:#dcf7e6}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;counter-reset:s}
+  .step{padding:26px;border-radius:var(--radius);background:linear-gradient(180deg,#fff 0%,#fff4e6 100%);border:2px dashed #ffd7a8}
+  .step::before{
+    counter-increment:s;content:counter(s);
+    font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:700;font-size:1.4rem;color:#fff;
+    width:46px;height:46px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px;
+    background:linear-gradient(180deg,#ff7a45,#ff3d6e);box-shadow:0 4px 0 #c81e4c;
+  }
+  .step h3{font-size:1.25rem;margin-bottom:6px}
+  .step p{color:var(--ink-soft)}
+
+  .features{background:#2a1640;color:#fff;border-radius:36px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .features .eyebrow{color:var(--mango)}
+  .features .sub{color:#d9cde8}
+  .flist{list-style:none;display:grid;gap:14px}
+  .flist li{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 16px}
+  .flist li svg{width:34px;height:34px;flex:none}
+  .flist b{font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;font-size:1.08rem;display:block}
+  .flist span{color:#d9cde8;font-size:.95rem}
+
+  .faq{max-width:760px;margin:40px auto 0}
+  details{background:var(--card);border-radius:18px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;font-weight:800;font-size:1.05rem;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:"Fredoka","Nunito",system-ui,sans-serif;font-size:1.6rem;color:var(--grape);transition:transform .2s}
+  details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  details p{padding:0 22px 20px;color:var(--ink-soft)}
+
+  .final{text-align:center;background:linear-gradient(135deg,#7b4dff,#ff3d6e);color:#fff;border-radius:36px;padding:64px 24px}
+  .final h2{margin:0 auto}
+  .final p{color:#ffe9f2;margin:12px auto 26px;max-width:46ch}
+  .cta{display:inline-block;text-decoration:none;font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;font-size:1.2rem;background:#fff;color:var(--ink);padding:16px 30px;border-radius:16px;box-shadow:0 6px 0 rgba(0,0,0,.18)}
+  .cta:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+
+  footer{padding:40px 0 50px;color:var(--ink-soft);font-size:.9rem;text-align:center}
+  footer nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+  footer a{font-weight:700;text-decoration:none;color:var(--ink)}
+  footer a:hover{color:var(--grape)}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;margin-top:36px}
+    .hero{padding-bottom:110px}
+    .phone{width:250px}
+    .perks,.steps{grid-template-columns:1fr}
+    .features{grid-template-columns:1fr;padding:36px 24px}
+    .hero .signup{max-width:none}
+  }
+  @media (max-width:520px){
+    .nav .pill{display:none}
+    .hero p.lead{font-size:1.05rem}
+    section{padding:64px 0}
+    .f1,.f3{width:64px;height:64px}
+    .f2,.f4{width:54px;height:54px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- Frutas reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gStraw" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ff7a93"/><stop offset="1" stop-color="#e0123f"/></radialGradient>
+    <radialGradient id="gOrange" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffd06a"/><stop offset="1" stop-color="#ff8a00"/></radialGradient>
+    <radialGradient id="gGrape" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#b58cff"/><stop offset="1" stop-color="#5a24d6"/></radialGradient>
+    <radialGradient id="gLime" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#9af07a"/><stop offset="1" stop-color="#1fae4b"/></radialGradient>
+    <radialGradient id="gBlue" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8fdcff"/><stop offset="1" stop-color="#1a7fe0"/></radialGradient>
+    <linearGradient id="gStar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff07a"/><stop offset="1" stop-color="#ffb21e"/></linearGradient>
+
+    <symbol id="strawberry" viewBox="0 0 64 64">
+      <path d="M32 58C18 52 9 40 10 28c1-8 8-12 14-11 3 0 6 1 8 3 2-2 5-3 8-3 6-1 13 3 14 11 1 12-8 24-22 30z" fill="url(#gStraw)"/>
+      <g fill="#ffe7a3" opacity=".9"><ellipse cx="22" cy="30" rx="1.6" ry="2.4"/><ellipse cx="32" cy="27" rx="1.6" ry="2.4"/><ellipse cx="42" cy="30" rx="1.6" ry="2.4"/><ellipse cx="27" cy="39" rx="1.6" ry="2.4"/><ellipse cx="37" cy="39" rx="1.6" ry="2.4"/><ellipse cx="32" cy="48" rx="1.6" ry="2.4"/></g>
+      <path d="M32 20c-4-6-12-6-14-3 5 0 8 2 9 4-4-1-9 0-10 3 5-1 10 0 15-1 5 1 10 0 15 1-1-3-6-4-10-3 1-2 4-4 9-4-2-3-10-3-14 3z" fill="#2fbf5b"/>
+      <ellipse cx="22" cy="24" rx="4" ry="2.4" fill="#fff" opacity=".45" transform="rotate(-30 22 24)"/>
+    </symbol>
+    <symbol id="orange" viewBox="0 0 64 64">
+      <circle cx="32" cy="35" r="23" fill="url(#gOrange)"/>
+      <g fill="#ffe2a0" opacity=".55"><circle cx="24" cy="40" r="1.2"/><circle cx="40" cy="44" r="1.2"/><circle cx="36" cy="30" r="1.2"/><circle cx="28" cy="48" r="1.2"/><circle cx="44" cy="36" r="1.2"/></g>
+      <path d="M32 13c2-6 9-8 14-6-2 6-8 8-14 6z" fill="#2fbf5b"/>
+      <ellipse cx="23" cy="25" rx="6" ry="3.4" fill="#fff" opacity=".45" transform="rotate(-35 23 25)"/>
+    </symbol>
+    <symbol id="grape" viewBox="0 0 64 64">
+      <g fill="url(#gGrape)"><circle cx="22" cy="22" r="9"/><circle cx="38" cy="21" r="9"/><circle cx="30" cy="32" r="9"/><circle cx="16" cy="35" r="8"/><circle cx="44" cy="34" r="8"/><circle cx="24" cy="45" r="8"/><circle cx="38" cy="45" r="8"/><circle cx="31" cy="56" r="6.5"/></g>
+      <g fill="#fff" opacity=".45"><circle cx="19" cy="19" r="2.4"/><circle cx="35" cy="18" r="2.4"/><circle cx="27" cy="29" r="2.4"/></g>
+      <path d="M30 13c0-4 2-7 5-9" stroke="#7a4a1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M33 11c6-5 14-3 16 1-6 3-12 2-16-1z" fill="#2fbf5b"/>
+    </symbol>
+    <symbol id="kiwi" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="25" fill="#8a5a2b"/>
+      <circle cx="32" cy="32" r="21" fill="url(#gLime)"/>
+      <circle cx="32" cy="32" r="7" fill="#f4ffd8"/>
+      <g fill="#2a1a0a"><ellipse cx="32" cy="19" rx="1.3" ry="2.4"/><ellipse cx="32" cy="45" rx="1.3" ry="2.4"/><ellipse cx="19" cy="32" rx="2.4" ry="1.3"/><ellipse cx="45" cy="32" rx="2.4" ry="1.3"/><ellipse cx="23" cy="23" rx="1.3" ry="2.4" transform="rotate(-45 23 23)"/><ellipse cx="41" cy="41" rx="1.3" ry="2.4" transform="rotate(-45 41 41)"/><ellipse cx="41" cy="23" rx="1.3" ry="2.4" transform="rotate(45 41 23)"/><ellipse cx="23" cy="41" rx="1.3" ry="2.4" transform="rotate(45 23 41)"/></g>
+      <ellipse cx="24" cy="20" rx="5" ry="2.4" fill="#fff" opacity=".35" transform="rotate(-35 24 20)"/>
+    </symbol>
+    <symbol id="berry" viewBox="0 0 64 64">
+      <circle cx="32" cy="34" r="22" fill="url(#gBlue)"/>
+      <path d="M24 16l4 5 4-6 4 6 4-5-1 8H25z" fill="#0f4fa3"/>
+      <ellipse cx="23" cy="27" rx="6" ry="3.2" fill="#fff" opacity=".45" transform="rotate(-35 23 27)"/>
+    </symbol>
+    <symbol id="star" viewBox="0 0 64 64">
+      <path d="M32 5l8.3 17 18.7 2.7-13.5 13.2 3.2 18.6L32 47.7 15.3 56.5l3.2-18.6L5 24.7 23.7 22z" fill="url(#gStar)" stroke="#e08a00" stroke-width="2.5" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="#"><svg><use href="#strawberry"/></svg>Fruta Fiesta</a>
+      <span class="pill"><span class="dot"></span>Prueba abierta · Android</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Juega antes <em>que nadie</em>.</h1>
+        <p class="lead">Fruta Fiesta llega pronto a Google Play. Buscamos probadores para estrenarlo gratis y ayudarnos a pulir cada nivel.</p>
+
+        <div class="signup" id="apuntarse">
+          <form id="form" novalidate>
+            <label class="field" for="email">Tu correo de Google Play</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tunombre@gmail.com" required>
+            <p class="hint">Usa el correo con el que entras en Google Play en tu Android; si no, no podremos darte acceso.</p>
+
+            <div style="margin-bottom:14px">
+              <label class="field" for="nombre">Nombre <span style="font-weight:600">(opcional)</span></label>
+              <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Cómo te llamamos">
+            </div>
+
+            <!-- Trampa para bots: las personas no la ven -->
+            <div class="hp" aria-hidden="true"><label>Web <input name="web" tabindex="-1" autocomplete="off"></label></div>
+
+            <label class="consent">
+              <input type="checkbox" id="acepto" required>
+              <span>Acepto que Fruta Fiesta guarde mi correo solo para invitarme a la prueba y avisarme del lanzamiento. Puedo pedir que lo borren cuando quiera. <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</span>
+            </label>
+
+            <button class="btn" id="enviar" type="submit">Quiero ser probador</button>
+            <div class="msg" id="msg" role="alert"></div>
+          </form>
+
+          <div class="done" aria-live="polite">
+            <div class="big">🎉</div>
+            <h3>¡Ya estás dentro!</h3>
+            <p>En unos días te llegará el enlace para instalar Fruta Fiesta desde Google Play. Revisa también la carpeta de spam.</p>
+          </div>
+        </div>
+
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gratis</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sin spam</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Android 7.0 o superior</span>
+        </div>
+      </div>
+
+      <div class="phone-stage" aria-hidden="true">
+        <div class="float f1"><svg><use href="#orange"/></svg></div>
+        <div class="float f2"><svg><use href="#grape"/></svg></div>
+        <div class="float f3"><svg><use href="#strawberry"/></svg></div>
+        <div class="float f4"><svg><use href="#kiwi"/></svg></div>
+        <div class="phone">
+          <div class="screen">
+            <div class="notch"></div>
+            <div class="hud"><div>Nivel<b>12</b></div><div>Puntos<b>8.450</b></div><div>Movs<b>14</b></div></div>
+            <div class="board" id="board"></div>
+            <div class="goal"><svg><use href="#orange"/></svg><div class="bar"><i></i></div>22/30</div>
+            <div class="stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Por qué apuntarte</span>
+      <h2>Ventajas de ser de los primeros</h2>
+      <div class="perks">
+        <article class="perk">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>Acceso anticipado</h3>
+          <p>Juega a todos los niveles semanas antes de que el juego salga para todo el mundo.</p>
+        </article>
+        <article class="perk">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Tu opinión cuenta</h3>
+          <p>Cuéntanos qué te gusta y qué no. Tus ideas pueden acabar dentro del juego.</p>
+        </article>
+        <article class="perk">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div>
+          <h3>Insignia de fundador</h3>
+          <p>Los probadores tendrán un marco de perfil exclusivo que nadie más podrá conseguir.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Tres pasos y a jugar</h2>
+      <div class="steps">
+        <div class="step"><h3>Déjanos tu correo</h3><p>El de tu cuenta de Google Play. Solo te lleva unos segundos.</p></div>
+        <div class="step"><h3>Recibe la invitación</h3><p>Te añadimos a la prueba y te enviamos el enlace para unirte desde Google Play.</p></div>
+        <div class="step"><h3>Instala y juega</h3><p>Descárgalo como cualquier app y mantenlo instalado al menos 14 días.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="features">
+        <div>
+          <span class="eyebrow">El juego</span>
+          <h2>Une frutas, encadena combos, lanza arcoíris</h2>
+          <p class="sub">Un puzle de combinar tres pensado para partidas cortas y muy jugosas. Junta cinco en línea y desata la fruta arcoíris.</p>
+        </div>
+        <ul class="flist">
+          <li><svg><use href="#strawberry"/></svg><div><b>Niveles para todos</b><span>Consigue las tres estrellas en cada uno.</span></div></li>
+          <li><svg><use href="#star"/></svg><div><b>Logros semanales</b><span>Estrellas, vidas y arcoíris que suman en tu perfil.</span></div></li>
+          <li><svg><use href="#grape"/></svg><div><b>Personaliza tu perfil</b><span>Avatares, marcos y banners para presumir.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div style="text-align:center"><span class="eyebrow">Dudas</span><h2 style="margin:0 auto">Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details><summary>¿Cuesta algo?</summary><p>No. Ser probador es gratis y no tienes que comprar nada para jugar.</p></details>
+        <details><summary>¿Funciona en iPhone?</summary><p>De momento no. La prueba es solo para móviles Android con Android 7.0 o superior.</p></details>
+        <details><summary>¿Por qué tiene que ser mi correo de Google Play?</summary><p>Google solo deja instalar la versión de prueba a las cuentas que están en la lista de probadores. Si apuntas otro correo, la tienda no te mostrará el juego.</p></details>
+        <details><summary>¿Qué tengo que hacer durante la prueba?</summary><p>Jugar cuando te apetezca y no desinstalar el juego durante al menos 14 días. Si encuentras algún fallo o tienes una idea, nos encantará saberlo.</p></details>
+        <details><summary>¿Qué hacéis con mi correo?</summary><p>Solo lo usamos para darte acceso a la prueba y avisarte del lanzamiento. No lo compartimos con nadie y puedes pedir que lo borremos escribiendo a <a class="contacto" href="#"></a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="final">
+        <h2>Las plazas de la prueba son limitadas</h2>
+        <p>Apúntate ahora y sé de los primeros en jugar a Fruta Fiesta.</p>
+        <a class="cta" href="#apuntarse">Apuntarme gratis</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="politica-privacidad.html">Política de privacidad</a>
+      <a href="eliminar-cuenta.html">Eliminar cuenta</a>
+      <a class="contacto-link" href="#">Contacto</a>
+    </nav>
+    <p>© <span id="y"></span> Fruta Fiesta. Google Play es una marca de Google LLC.</p>
+  </div>
+</footer>
+
+<script>
+  /* ====== CONFIGURACIÓN: rellena estas dos líneas ====== */
+  const URL_HOJA = "https://script.google.com/macros/s/AKfycbyXVd-8aixt_eXar7FH78DIc4oYXhjuctpGzzuZUBf3FNPad8JGWTespGy-OyRaU56ilw/exec";   // la URL que termina en /exec
+  const CONTACTO = "juansevilla3406@gmail.com";
+  /* ===================================================== */
+
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('.contacto').forEach(a => { a.textContent = CONTACTO; a.href = 'mailto:' + CONTACTO; });
+  document.querySelectorAll('.contacto-link').forEach(a => { a.href = 'mailto:' + CONTACTO; });
+
+  // Tablero animado del móvil (con dos combinaciones marcadas)
+  const frutas = ['strawberry','orange','grape','kiwi','berry'];
+  const board = document.getElementById('board');
+  const combo = {8:'orange',9:'orange',10:'orange',20:'grape',26:'grape',32:'grape'};
+  for (let i = 0; i < 36; i++) {
+    const t = document.createElement('div');
+    let f = combo[i];
+    if (!f) { f = frutas[(i * 7 + (i >> 2)) % 5]; if (f === 'orange' || f === 'grape') f = frutas[(i * 3) % 5] === f ? 'kiwi' : frutas[(i * 3) % 5]; }
+    t.className = 'tile' + (combo[i] ? ' pop' : '');
+    t.innerHTML = '<svg><use href="#' + f + '"/></svg>';
+    board.appendChild(t);
+  }
+
+  // Formulario
+  const form = document.getElementById('form');
+  const btn = document.getElementById('enviar');
+  const msg = document.getElementById('msg');
+  const params = new URLSearchParams(location.search);
+  let origen = params.get('utm_source') || params.get('origen') || '';
+  if (!origen) { try { origen = document.referrer ? new URL(document.referrer).hostname : 'directo'; } catch (_) { origen = 'directo'; } }
+
+  function error(texto){ msg.textContent = texto; msg.className = 'msg err'; }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.className = 'msg';
+    const email = form.email.value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return error('Revisa el correo, parece que no está bien escrito.');
+    if (!document.getElementById('acepto').checked) return error('Marca la casilla para que podamos guardar tu correo.');
+    if (form.web.value) return; // bot
+
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    const ua = navigator.userAgent;
+    const datos = new URLSearchParams({
+      email,
+      nombre: form.nombre.value.trim().slice(0, 60),
+      dispositivo: /android/i.test(ua) ? 'Android' : /iphone|ipad/i.test(ua) ? 'iOS' : 'Ordenador',
+      origen
+    });
+    try {
+      await fetch(URL_HOJA, { method: 'POST', mode: 'no-cors', body: datos });
+      document.getElementById('apuntarse').classList.add('sent');
+      if (/iphone|ipad/i.test(ua)) {
+        document.querySelector('.done p').textContent = 'Te hemos apuntado. Recuerda que la prueba es para Android: cuando te llegue el enlace, ábrelo en un móvil Android con ese mismo correo.';
+      }
+    } catch (err) {
+      error('No se ha podido enviar. Comprueba tu conexión e inténtalo de nuevo.');
+      btn.disabled = false; btn.textContent = 'Quiero ser probador';
+    }
+  });
+</script>
+</body>
+</html>
